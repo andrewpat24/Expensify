@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 import Header from '../components/Header';
 import NotFound from '../components/NotFound';
 import Help from '../components/Help';
-import EditExpense from '../components/EditExpense';
 import Dashboard from '../components/Dashboard';
 import AddExpense from '../components/AddExpense';
 
