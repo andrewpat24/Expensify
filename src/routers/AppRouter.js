@@ -8,8 +8,6 @@ import Help from '../components/Help';
 import Dashboard from '../components/Dashboard';
 import AddExpense from '../components/AddExpense';
 
-
-
 const AppRouter = () => (
     <BrowserRouter>
         <div>
