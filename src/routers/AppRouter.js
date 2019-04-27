@@ -7,6 +7,7 @@ import NotFound from '../components/NotFound';
 import Help from '../components/Help';
 import Dashboard from '../components/Dashboard';
 import AddExpense from '../components/AddExpense';
+import EditExpense from '../components/EditExpense';
 
 const AppRouter = () => (
     <BrowserRouter>
@@ -16,6 +17,8 @@ const AppRouter = () => (
                 <Route exact path="/" component={Dashboard}/>
                 <Route exact path="/create" component={AddExpense}/>
                 <Route exact path="/help" component={Help}/>
+                <Route exact path="/edit/:id" component={EditExpense}/>
+
                 <Route component={NotFound}/> 
             </Switch>
         </div>

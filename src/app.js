@@ -11,6 +11,7 @@ import getVisibleExpenses from './selectors/expenses';
 // Styles
 import './styles/styles.scss';
 import 'normalize.css/normalize.css';
+import 'react-dates/initialize';
 
 const store = configureStore(); 
 
