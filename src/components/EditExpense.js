@@ -3,7 +3,13 @@ import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 
 
-const EditExpense = (props) => (
+const EditExpense = (props) => {
+    
+    if(typeof(props.expense) === "undefined") {
+        return props.history.push('/');
+    }
+
+    return (
     <div>
         <h1>Editing doc id: {props.match.params.id}</h1>
         <h2>{props.expense.description}</h2>
@@ -15,7 +21,8 @@ const EditExpense = (props) => (
             }}
         />
     </div>
-)
+    )
+}
 
 
 const mapStateToProps = (state, props) => {
