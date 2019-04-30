@@ -13,12 +13,6 @@ const ExpenseListItem = (props) => {
                 </Link>
                 <h2>Amount: {amount}</h2>
                 <h2>Created at: {createdAt}</h2>
-                
-                <button onClick={ () => { dispatch( 
-                    removeExpense({
-                        id
-                    }) 
-                ) } }>Remove</button>
             </div>
     )
 }
