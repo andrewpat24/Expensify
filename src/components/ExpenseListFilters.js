@@ -35,7 +35,7 @@ class ExpenseListFilters extends Component {
                 <select 
                 value={this.props.filters.sortBy}
                 onChange={(e) => {
-                    console.log('select changed.', e.target.value);
+                    console.log('sortBy changed: ', e.target.value);
                     e.target.value === "date" ? this.props.dispatch( sortByDate() ) : this.props.dispatch(sortByAmount());
                 }}>
                     <option>date</option>
