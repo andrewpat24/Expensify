@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render dashboard 1`] = `
+<section
+  component="Dashboard"
+>
+  <h1>
+    Dashboard
+  </h1>
+  <ConnectFunction />
+  <ExpenseList />
+</section>
+`;
