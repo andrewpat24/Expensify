@@ -1,6 +1,6 @@
 import React from "react";
 // Components
-import { ExpenseList } from "./ExpenseList";
+import ExpenseList from "./ExpenseList";
 import ExpenseListFilters from "./ExpenseListFilters";
 
 const Dashboard = () => (
