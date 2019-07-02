@@ -9,5 +9,6 @@ exports[`Should render dashboard 1`] = `
   </h1>
   <ConnectFunction />
   <ConnectFunction />
+  <ConnectFunction />
 </section>
 `;
