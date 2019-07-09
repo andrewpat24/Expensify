@@ -3,7 +3,6 @@ import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 
 const now = moment();
-console.log(now.format("MMMM Do, YYYY"));
 
 class ExpenseForm extends Component {
   constructor(props) {
@@ -61,7 +60,6 @@ class ExpenseForm extends Component {
         error: "Amount and Description must be filled in."
       }));
     } else {
-      console.log("Submitted");
       this.setState(() => ({ error: "" }));
       this.props.onSubmit({
         description: this.state.description,

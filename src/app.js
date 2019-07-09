@@ -12,6 +12,10 @@ import "./styles/styles.scss";
 import "normalize.css/normalize.css";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
+// Firebase
+import "./firebase/firebase";
+// Playground import
+import "./playground/promises";
 
 const store = configureStore();
 
@@ -41,7 +45,6 @@ store.dispatch(
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-console.log(visibleExpenses);
 
 const jsx = (
   <Provider store={store}>

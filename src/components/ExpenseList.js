@@ -6,12 +6,10 @@ import ExpenseListItem from "./ExpenseListItem";
 import selectExpenses from "../selectors/expenses";
 
 export const ExpenseList = props => {
-  console.log(props);
   let expensesProp;
   if (typeof props.expenses !== "undefined") {
     expensesProp = props.expenses;
   } else {
-    // console.log(props);
     expensesProp = [];
   }
 
@@ -32,7 +30,6 @@ export const ExpenseList = props => {
 };
 
 const mapStateToProps = state => {
-  console.log("state:", selectExpenses(state.expenses, state.filters));
   return {
     expenses: selectExpenses(state.expenses, state.filters)
   };
