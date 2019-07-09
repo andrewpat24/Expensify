@@ -10,6 +10,7 @@
     "start": "node server/server.js",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "test-watch": "npm run test --watch",
+    "heroku-prebuild": "rm -rf node_modules && rm -rf package-lock.json",
     "heroku-postbuild": "npm run build:prod"
   },
   "repository": {
@@ -33,7 +34,8 @@
     "css-loader": "^0.28.4",
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
-    "firebase": "^4.2.0",
+    "firebase": "^6.2.4",
+    "firebase-functions": "^3.1.0",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
     "normalize.css": "^7.0.0",
