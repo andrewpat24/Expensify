@@ -17,6 +17,10 @@ const database = firebase.database();
 
 export { firebase, database as default };
 
+// Deleting an entry
+const id = "-LjJsj4-txJKtcTZilYE";
+database.ref("expenses/" + id).set(null);
+
 // database
 //   .ref("expenses")
 //   .once("value")

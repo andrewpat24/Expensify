@@ -7,8 +7,8 @@ exports[`Should render dashboard 1`] = `
   <h1>
     Dashboard
   </h1>
-  <ConnectFunction />
-  <ConnectFunction />
-  <ConnectFunction />
+  <Connect(ExpensesSummary) />
+  <Connect(ExpenseListFilters) />
+  <Connect(ExpenseList) />
 </section>
 `;

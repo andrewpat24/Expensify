@@ -5,6 +5,7 @@ import {
   addExpense,
   editExpense,
   removeExpense,
+  startRemoveExpense,
   setExpenses,
   startSetExpenses
 } from "../../actions/expenses";
@@ -24,14 +25,6 @@ beforeEach(done => {
     .then(() => {
       done();
     });
-});
-
-test("Should setup remove expense action object", () => {
-  const action = removeExpense({ id: "420" });
-  expect(action).toEqual({
-    type: "REMOVE_EXPENSE",
-    id: "420"
-  });
 });
 
 test("Should setup edit expense action object", () => {
@@ -129,5 +122,33 @@ test("Should fetch the expenses from firebase", done => {
       expenses
     });
     done();
+  });
+});
+
+test("Should setup remove expense action object", () => {
+  const action = removeExpense({ id: "420" });
+  expect(action).toEqual({
+    type: "REMOVE_EXPENSE",
+    id: "420"
+  });
+});
+
+test("Should remove expense from database and store", done => {
+  const store = createMockStore({});
+  const id = 2;
+  store.dispatch(startRemoveExpense({ id })).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: "REMOVE_EXPENSE",
+      id
+    });
+
+    return database
+      .ref("expenses/" + id.toString())
+      .once("value")
+      .then(result => {
+        expect(result.val()).toBeFalsy();
+        done();
+      });
   });
 });
