@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 
-const now = moment();
-
 class ExpenseForm extends Component {
   constructor(props) {
     super(props);
@@ -74,6 +72,7 @@ class ExpenseForm extends Component {
     return (
       <div>
         {this.state.error && <p>{this.state.error}</p>}
+
         <form onSubmit={this.onSubmit}>
           <input
             autoFocus
@@ -101,6 +100,7 @@ class ExpenseForm extends Component {
             value={this.state.note}
             onChange={this.onNoteChange}
           />
+
           {this.state.expenseIsNew ? (
             <button>Add Expense</button>
           ) : (

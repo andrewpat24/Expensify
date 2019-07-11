@@ -7,7 +7,8 @@ import {
   removeExpense,
   startRemoveExpense,
   setExpenses,
-  startSetExpenses
+  startSetExpenses,
+  startEditExpense
 } from "../../actions/expenses";
 import expenses from "../fixtures/expenses";
 import database from "../../firebase/firebase";
@@ -25,17 +26,6 @@ beforeEach(done => {
     .then(() => {
       done();
     });
-});
-
-test("Should setup edit expense action object", () => {
-  const action = editExpense("420", { name: "Steve" });
-  expect(action).toEqual({
-    type: "EDIT_EXPENSE",
-    id: "420",
-    updates: {
-      name: "Steve"
-    }
-  });
 });
 
 test("Should setup add expense action object with provided values", () => {
@@ -148,6 +138,48 @@ test("Should remove expense from database and store", done => {
       .once("value")
       .then(result => {
         expect(result.val()).toBeFalsy();
+        done();
+      });
+  });
+});
+
+test("Should setup edit expense action object", () => {
+  const action = editExpense("420", { name: "Steve" });
+  expect(action).toEqual({
+    type: "EDIT_EXPENSE",
+    id: "420",
+    updates: {
+      name: "Steve"
+    }
+  });
+});
+
+test("Should edit expense in database and store", done => {
+  const store = createMockStore({});
+  const currentItem = expenses[0];
+  const updates = {
+    amount: 696969,
+    description: "gun lowodkf",
+    note: "Test dsfocjvkxkclv"
+  };
+
+  store.dispatch(startEditExpense(currentItem.id, updates)).then(() => {
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type: "EDIT_EXPENSE",
+      id: currentItem.id,
+      updates: { ...updates }
+    });
+
+    database
+      .ref("expenses/" + currentItem.id)
+      .once("value")
+      .then(result => {
+        const updatedResult = result.val();
+        expect(updatedResult).toEqual({
+          ...updatedResult,
+          ...updates
+        });
         done();
       });
   });
