@@ -14,12 +14,13 @@ var config = {
 firebase.initializeApp(config);
 
 const database = firebase.database();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, database as default };
+export { firebase, googleAuthProvider, database as default };
 
 // Deleting an entry
-const id = "-LjJsj4-txJKtcTZilYE";
-database.ref("expenses/" + id).set(null);
+// const id = "-LjJsj4-txJKtcTZilYE";
+// database.ref("expenses/" + id).set(null);
 
 // database
 //   .ref("expenses")

@@ -13,7 +13,7 @@ import "normalize.css/normalize.css";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 // Firebase
-import "./firebase/firebase";
+import { firebase } from "./firebase/firebase";
 // Playground import
 import "./playground/promises";
 
@@ -29,4 +29,13 @@ ReactDOM.render(<p>Loading..</p>, document.getElementById("app"));
 
 store.dispatch(startSetExpenses()).then(() => {
   ReactDOM.render(jsx, document.getElementById("app"));
+});
+
+firebase.auth().onAuthStateChanged(user => {
+  console.log(user);
+  if (user) {
+    console.log("Logged in");
+  } else {
+    history.push("/");
+  }
 });

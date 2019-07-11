@@ -26,7 +26,7 @@ test("Should render EditExpense component correctly", () => {
 
 test("Should handle editExpense", () => {
   wrapper.find("ExpenseForm").prop("onSubmit")(expenses[0]);
-  expect(history.push).toHaveBeenCalledWith("/");
+  expect(history.push).toHaveBeenCalledWith("/dashboard");
   expect(startEditExpense).toHaveBeenLastCalledWith(id, {
     amount,
     createdAt,
@@ -38,7 +38,7 @@ test("Should handle editExpense", () => {
 
 test("Should handle removeExpense", () => {
   wrapper.find("button").prop("onClick")(expenses[0]);
-  expect(history.push).toHaveBeenCalledWith("/");
+  expect(history.push).toHaveBeenCalledWith("/dashboard");
   expect(startRemoveExpense).toHaveBeenLastCalledWith({
     id
   });
