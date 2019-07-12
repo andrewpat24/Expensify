@@ -6,7 +6,6 @@ import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 // Components
 import NotFound from "../components/NotFound";
-import Help from "../components/Help";
 import Login from "../components/Login";
 import Dashboard from "../components/Dashboard";
 import AddExpense from "../components/AddExpense";
@@ -19,7 +18,6 @@ const AppRouter = () => (
     <div>
       <Switch>
         <PublicRoute exact path="/" component={Login} />
-        <Route exact path="/help" component={Help} />
 
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/create" component={AddExpense} />
