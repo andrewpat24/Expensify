@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
+import PrivateRoute from "./PrivateRoute";
 // Components
-import Header from "../components/Header";
 import NotFound from "../components/NotFound";
 import Help from "../components/Help";
 import Login from "../components/Login";
@@ -16,13 +16,14 @@ export const history = createHistory();
 const AppRouter = () => (
   <Router history={history}>
     <div>
-      <Header />
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/create" component={AddExpense} />
         <Route exact path="/help" component={Help} />
-        <Route exact path="/edit/:id" component={EditExpense} />
+
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute exact path="/create" component={AddExpense} />
+        <PrivateRoute exact path="/edit/:id" component={EditExpense} />
+
         <Route component={NotFound} />
       </Switch>
     </div>
