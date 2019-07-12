@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 import { createBrowserHistory as createHistory } from "history";
 import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 // Components
 import NotFound from "../components/NotFound";
 import Help from "../components/Help";
@@ -17,7 +18,7 @@ const AppRouter = () => (
   <Router history={history}>
     <div>
       <Switch>
-        <Route exact path="/" component={Login} />
+        <PublicRoute exact path="/" component={Login} />
         <Route exact path="/help" component={Help} />
 
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
