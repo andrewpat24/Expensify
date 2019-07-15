@@ -1,4 +1,7 @@
 // Base
-@import './base/settings';
-@import './base/base';
+@import "./base/settings";
+@import "./base/base";
 // Components
+@import "./components/box-layout";
+// Partials
+@import "./components/partials/button";
