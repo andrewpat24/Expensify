@@ -6,13 +6,19 @@ import numeral from "numeral";
 const ExpenseListItem = props => {
   const { id, description, amount = 100, createdAt = 500 } = props;
   return (
-    <div>
-      <Link to={`/edit/${id}`}>
-        <h1>{description}</h1>
-      </Link>
-      <h2>Amount : {numeral(amount / 100).format("$0,0.00")}</h2>
-      <h2>Created at : {moment(createdAt).format("MMMM Do, YYYY")}</h2>
-    </div>
+    <Link className="list-item" to={`/edit/${id}`}>
+      <div>
+        <h3 className="list-item__title">{description}</h3>
+        <span className="list-item__subtitle">
+          {moment(createdAt).format("MMMM Do, YYYY")}
+        </span>
+      </div>
+      <div>
+        <h3 className="list-item__data">
+          {numeral(amount / 100).format("$0,0.00")}
+        </h3>
+      </div>
+    </Link>
   );
 };
 
