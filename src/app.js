@@ -14,8 +14,8 @@ import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 // Firebase
 import { firebase } from "./firebase/firebase";
-// Playground import
-import "./playground/promises";
+// Components
+import Loading from "./components/Loading";
 
 const store = configureStore();
 
@@ -32,7 +32,7 @@ const renderApp = () => {
     hasRendered = true;
   }
 };
-ReactDOM.render(<p>Loading..</p>, document.getElementById("app"));
+ReactDOM.render(<Loading />, document.getElementById("app"));
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
