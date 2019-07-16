@@ -19,14 +19,26 @@ export class EditExpense extends React.Component {
   render() {
     return (
       <div>
-        <h1>Editing doc id: {this.props.expense.id}</h1>
-        <h2>{this.props.expense.description}</h2>
-        <ExpenseForm
-          expense={this.props.expense}
-          expenseIsNew={false}
-          onSubmit={this.onSubmit}
-        />
-        <button onClick={this.onRemove}>Remove</button>
+        <div className="page-header">
+          <div className="content-container">
+            <h1 className="page-header__title">Edit Expense</h1>
+          </div>
+        </div>
+        <div className="content-container">
+          <ExpenseForm
+            expense={this.props.expense}
+            expenseIsNew={false}
+            onSubmit={this.onSubmit}
+          />
+        </div>
+        <div className="content-container content-space-around-s">
+          <button
+            className="btn md blue-secondary-bg btn-space-around"
+            onClick={this.onRemove}
+          >
+            Remove Expense
+          </button>
+        </div>
       </div>
     );
   }

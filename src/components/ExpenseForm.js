@@ -71,18 +71,22 @@ class ExpenseForm extends Component {
   render() {
     return (
       <div>
-        {this.state.error && <p>{this.state.error}</p>}
+        <form className="form" onSubmit={this.onSubmit}>
+          {this.state.error && (
+            <p className="form__error">{this.state.error}</p>
+          )}
 
-        <form onSubmit={this.onSubmit}>
           <input
             autoFocus
             type="text"
+            className="text-input"
             placeholder="Description"
             value={this.state.description}
             onChange={this.onDescriptionChange}
           />
           <input
             type="text"
+            className="text-input"
             placeholder="Amount"
             value={this.state.amount}
             onChange={this.onAmountChange}
@@ -97,16 +101,16 @@ class ExpenseForm extends Component {
           />
           <textarea
             placeholder="add a note for your expense (optional)."
+            className="textarea"
             value={this.state.note}
             onChange={this.onNoteChange}
           />
-
-          {this.state.expenseIsNew ? (
-            <button>Add Expense</button>
-          ) : (
-            <button>Edit Expense</button>
-          )}
         </form>
+        {this.state.expenseIsNew ? (
+          <button className="btn md blue-bg">Add Expense</button>
+        ) : (
+          <button className="btn md blue-bg">Edit Expense</button>
+        )}
       </div>
     );
   }

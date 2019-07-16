@@ -2,9 +2,11 @@
 @import "./base/settings";
 @import "./base/base";
 // Partials
-@import "./components/partials/button";
-// Components
+@import "./components/button";
+@import "./components/inputs";
+@import "./components/form";
 @import "./components/box-layout";
 @import "./components/header";
 @import "./components/content-container";
 @import "./components/page-header";
+@import "./components/input-group";
