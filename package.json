@@ -1,7 +1,6 @@
 {
   "name": "expensify",
   "version": "1.0.0",
-  "description": "A client side webapp to solve user indecision",
   "main": "server.js",
   "scripts": {
     "build:dev": "webpack",
